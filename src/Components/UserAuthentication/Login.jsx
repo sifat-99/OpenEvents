@@ -1,6 +1,6 @@
 // import { useContext } from "react";
 import { useContext } from "react";
-import { NavLink,  useLocation, useNavigate } from "react-router-dom";
+import { NavLink,  redirect,  useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
@@ -24,6 +24,7 @@ const Login = () => {
     .then(() => {
       // console.log(res.user)
       navigate(location ? location.state : '/')
+      redirect('/')
     })
     .catch(() => {
       // console.log(err);

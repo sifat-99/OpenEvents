@@ -9,11 +9,13 @@ import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import Dashboard from "../Components/allPages/Dashboard/Dashboard";
 import Profile from "../Components/privateRoute/Profile/Profile";
 import About from "../Components/allPages/EventSection/About";
+import ErrorPage from "../Components/allPages/ErrorPage/ErrorPage";
 
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -43,7 +45,10 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+                element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+                loader: async () => {
+                    return fetch('/Events.json');
+                  },
             },
             {
                 path: "/profile",

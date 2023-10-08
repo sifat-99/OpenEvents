@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, redirect } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
@@ -42,9 +42,9 @@ const Register = () => {
 
 
     createUser(email,password,name,image)
- 
     .then((res) => {
         console.log(res.user);
+        redirect('/login')
     })
     .catch((err) => {
         console.log(err);

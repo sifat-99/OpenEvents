@@ -158,7 +158,7 @@ const Navbar = () => {
                 ></label>
                 <ul className="menu p-4 w-auto min-h-full bg-base-200 text-base-content">
                   <li>{user?.displayName}</li>
-                  <li>
+                  <li className="mt-8">
                     <Link to={'/profile'}><button>Profile</button></Link>
                   </li>
                   <li>

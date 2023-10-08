@@ -11,23 +11,23 @@ const Footer = () => {
       <footer className="footer p-10 bg-base-200 text-base-content">
         <nav>
           <header className="footer-title">Services</header>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <button className="link link-hover">Booking</button>
+          <button className="link link-hover">Events</button>
+          <button className="link link-hover">Ticketing</button>
+          <button className="link link-hover">Shows</button>
         </nav>
         <nav>
           <header className="footer-title">Company</header>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <button className="link link-hover">About us</button>
+          <button className="link link-hover">Contact</button>
+          <button className="link link-hover">Events</button>
+          <button className="link link-hover">Office Address</button>
         </nav>
         <nav>
           <header className="footer-title">Legal</header>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <button className="link link-hover">Terms of use</button>
+          <button className="link link-hover">Privacy policy</button>
+          <button className="link link-hover">Cookie policy</button>
         </nav>
         <form>
           <header className="footer-title">Newsletter</header>
@@ -38,7 +38,7 @@ const Footer = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="username@site.com"
+                placeholder="Your Email"
                 className="input input-bordered w-full pr-16"
               />
               <button
