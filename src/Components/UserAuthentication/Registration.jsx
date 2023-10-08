@@ -1,8 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+
+    const [valid, setValid] = useState('');
 
     const {createUser}= useContext(AuthContext);
     const handleLogin = (e) => {
@@ -11,7 +13,35 @@ const Register = () => {
     const password = e.target.password.value;
     const name = e.target.text.value;
     const image = e.target.image.value;
-    createUser(email,password)
+        if(password.length < 6){
+            setValid('Password must be at least 6 characters long')
+            return;
+        }
+        else if(!/[A-Z]/.test(password)){
+            setValid('Password must contain at least one uppercase letter')
+            return;
+        }
+        else if(!/[a-z]/.test(password)){
+            setValid('Password must contain at least one lowercase letter')
+            return;
+        }
+        else if(!/[0-9]/.test(password)){
+            setValid('Password must contain at least one number')
+            return;
+        }
+        else if(!/[!@#$%^&*]/.test(password)){
+            setValid('Password must contain at least one special character')
+            return;
+        }
+        else{
+            setValid('');
+        }
+
+
+
+
+
+    createUser(email,password,name,image)
  
     .then((res) => {
         console.log(res.user);
@@ -80,6 +110,12 @@ const Register = () => {
                 className="input input-bordered w-full" 
                 required
               />
+
+              <p className="text-red-600 font-semibold mt-3">
+                {
+                    valid
+                }
+              </p>
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?

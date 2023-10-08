@@ -3,11 +3,12 @@ import Home from "../Components/HomePage/Home";
 import Root from "../Components/Root/Root";
 import Login from "../Components/UserAuthentication/Login";
 import Register from "../Components/UserAuthentication/Registration";
-import EventSection from "../Components/allPages/EventSection/EventSection";
+// import EventSection from "../Components/allPages/EventSection/EventSection";
 import EventDetails from "../Components/allPages/Events/EventDetails";
 import PrivateRoute from "../Components/privateRoute/PrivateRoute";
 import Dashboard from "../Components/allPages/Dashboard/Dashboard";
 import Profile from "../Components/privateRoute/Profile/Profile";
+import About from "../Components/allPages/EventSection/About";
 
 const routes = createBrowserRouter([
     {
@@ -30,11 +31,8 @@ const routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: "/events",
-                element: <EventSection></EventSection>,
-                loader: async () => {
-                    return fetch('/Events.json');
-                  },
+                path: "/about",
+                element: <About></About>,
             },
             {
                 path: "/details/:id",

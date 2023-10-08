@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { GoogleAuthProvider } from "firebase/auth";
+import swal from 'sweetalert';
 
 const Login = () => {
 
@@ -12,7 +13,7 @@ const Login = () => {
   const provider = new GoogleAuthProvider();
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
 
 
   const handleLogin = (e) => {
@@ -20,25 +21,28 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     signIn(email,password)
-    .then((res) => {
-      console.log(res.user);
+    .then(() => {
+      // console.log(res.user)
       navigate(location ? location.state : '/')
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      // console.log(err);
+      swal("Oops!", "You can not Logged in!", "error");
     })
     e.target.reset();
   };
   const handleGoogleLogin = (e) => {
     e.preventDefault();
     signInWithGoogle(provider)
-    .then((res) => {
-      console.log(res.user);
+    .then(() => {
+      // console.log(res.user);
+      swal("Congratulation!", "You have successfully Logged in!", "success");
+       
       navigate(location ? location.state : '/')
     }
     )
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      // console.log(err);
     })
     e.target.reset();
   }

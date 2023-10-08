@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -10,6 +11,7 @@ const Navbar = () => {
     logOut()
       .then((res) => {
         console.log(res);
+        swal("Congratulation!", "You have successfully Logged out!", "success");
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +48,7 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to={"/events"}
           className={({ isActive, isPending }) =>
@@ -59,7 +61,7 @@ const Navbar = () => {
         >
           Events
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 

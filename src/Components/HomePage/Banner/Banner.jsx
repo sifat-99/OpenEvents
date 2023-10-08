@@ -12,10 +12,8 @@ const Banner = () => {
             <br />
             Your Ultimate Calendar
           </p>
-          <button className="btn btn-ghost text-black mt-48 bg-red-600 text-3xl  ">Book your tickets now</button>
-          <div className="card-actions justify-center items-center">
-           
-          </div>
+          <button className="btn btn-ghost text-black mt-48 bg-red-600 text-xl md:text-3xl  ">Book your tickets now</button>
+          
         </div>
         </div>
       </div>

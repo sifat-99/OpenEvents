@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import swal from 'sweetalert';
 
 const EventDetails = () => {
+
   const [card, setCard] = useState({});
   const params = useParams();
   const Events = useLoaderData();
+
+        const handleBuyTicket = () => {
+            swal("Congratulation!", "You have successfully buy it!", "success");
+        }
+
+
   const { event_id } = Events;
   useEffect(() => {
     const cardDetails = Events.find((event) => event.event_id == params.id);
@@ -29,7 +37,7 @@ const EventDetails = () => {
           <p>{card.event_description}</p>
           <p>Ticket Price: {card.ticket_price} $</p>
           <div className="card-actions justify-start">
-            <button className="btn btn-primary">Buy Tickets Now</button>
+            <button onClick={handleBuyTicket} className="btn btn-primary">Buy Tickets Now</button>
           </div>
         </div>
       </div>
