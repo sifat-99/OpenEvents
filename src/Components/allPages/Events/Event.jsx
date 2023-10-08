@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 
 const Event = ({ event }) => {
   const {
-    event_type,
+    event_id,
     event_name,
     date,
-    venue,
     location,
-    performers,
     event_image,
   } = event;
   return (
@@ -26,7 +24,7 @@ const Event = ({ event }) => {
           <p>{location}</p>
           <p>{date}</p>
           <div className="card-actions">
-            <Link><button className="btn btn-primary">View details</button></Link>
+            <Link to={`/details/${event_id}`}><button className="btn btn-primary">View details</button></Link>
             <Link><button className="btn ">Book Now</button></Link>
           </div>
         </div>

@@ -10,7 +10,7 @@ const Events = ({ data }) => {
   };
 
   const events = data;
-  console.log(events.events);
+//   console.log(events.events);
   return (
     <div>
       <div
@@ -18,7 +18,7 @@ const Events = ({ data }) => {
         className="grid grid-cols-1 lg:grid-cols-2 gap-6"
       >
         {
-            slice  ?   events.slice(0, 4).map((event) => (
+            slice  ?   events.slice(0, 6).map((event) => (
                          <Event key={event.event_id} event={event}></Event>
                         ))
             :   events.map((event) => (

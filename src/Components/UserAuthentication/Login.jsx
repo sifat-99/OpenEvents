@@ -1,20 +1,48 @@
 // import { useContext } from "react";
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,  useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
 
-  const  {signIn}= useContext(AuthContext);
+  const  {signIn,signInWithGoogle}= useContext(AuthContext);
+  const provider = new GoogleAuthProvider();
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
 
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signIn(email,password);
+    signIn(email,password)
+    .then((res) => {
+      console.log(res.user);
+      navigate(location ? location.state : '/')
+    })
+    .catch((err) => {
+      console.log(err);
+    })
     e.target.reset();
   };
+  const handleGoogleLogin = (e) => {
+    e.preventDefault();
+    signInWithGoogle(provider)
+    .then((res) => {
+      console.log(res.user);
+      navigate(location ? location.state : '/')
+    }
+    )
+    .catch((err) => {
+      console.log(err);
+    })
+    e.target.reset();
+  }
+
 
   return (
     <div className=" min-h-screen flex flex-col justify-center items-center" style={{backgroundImage: "url('/Bg.png')"}}  data-aos="zoom-in">
@@ -61,7 +89,13 @@ const Login = () => {
                   Register
                 </p></NavLink>
             </div>
+
+          
           </form>
+          <div className="flex items-center gap-6 mt-5">
+              <button onClick={handleGoogleLogin} className="text-3xl flex items-center btn normal-case"><FcGoogle></FcGoogle></button>
+              <button className="text-3xl flex items-center btn normal-case"><FaApple></FaApple></button>
+          </div>
         </div>
       </div>
   );
