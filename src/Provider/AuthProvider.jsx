@@ -15,7 +15,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  console.log(user?.displayName);
+  // console.log(user?.displayName);
   const signInWithGoogle = (GoogleAuthProvider) => {
     setLoading(true);
     return signInWithPopup(auth, GoogleAuthProvider);
@@ -28,7 +28,6 @@ const AuthProvider = ({ children }) => {
       email,
       password
     );
-    console.log(createdUser.user);
     const UpdateUser = createdUser.user;
     await updateProfile(UpdateUser, {
       displayName: name,

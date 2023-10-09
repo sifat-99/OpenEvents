@@ -1,8 +1,15 @@
-# React + Vite
+ <div align="center">
+    <img height="60" src="/openevent.png">
+    <h1> OpenEvent </h1>
+ </div>
+        
+- 1: `Our Website Link` [OpenEvent](https://assignment-9-68bc4.web.app/)
+- 2: `Our Website is for those people who are interested to join an event`
+- 3: `People can visit our website to know about the event and can buy the ticket for the upcoming event`
+- 4: `People can also see the location of the event and can see the details of the event`
+- 5: `We use authentication system, if people want to see the price or buy the ticket they have to login first`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Website link: <h1>[OpenEvent](https://assignment-9-68bc4.web.app/)</h1>

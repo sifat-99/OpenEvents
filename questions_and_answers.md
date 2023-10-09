@@ -18,9 +18,9 @@ console.log(greetign);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: - B: `ReferenceError: greetign is not defined`
 
-<i>Write your explanation here</i>
+<i>There is a typographical error in the variable name. Instead of greeting, it is written as greetign, which means greetign is not defined as a variable. Therefore, when you try to log greetign, it will result in a ReferenceError because the variable greetign is not declared before it is used.</i>
 
 </p>
 </details>
@@ -43,9 +43,9 @@ sum(1, "2");
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: - C: `"12"`
 
-<i>Write your explanation here</i>
+<i>In JavaScript, when we use the + operator with two operands and one of them is a string, JavaScript performs concatenation instead of arithmetic addition. In this case, the 1 is a number, and the "2" is a string. When we add them together with 1 + "2", JavaScript converts the number 1 to a string and then concatenates the two strings, resulting in "12".</i>
 
 </p>
 </details>
@@ -69,9 +69,9 @@ console.log(food);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: - A: `['🍕', '🍫', '🥑', '🍔']`
 
-<i>Write your explanation here</i>
+<i>Here, "info.favoriteFood" is initially assigned the value "🍕" which is the first element of the food array. However, later in the code, it is reassigned the value "🍝". This reassignment does not affect the food array, so when you log food, it remains ['🍕', '🍫', '🥑', '🍔'].</i>
 
 </p>
 </details>
@@ -94,9 +94,9 @@ console.log(sayHi());
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: - B: `Hi there, undefined`
 
-<i>Write your explanation here</i>
+<i>In the "sayHi" function, there is a parameter name that is expected to be passed when the function is called. However, when you call sayHi() without providing an argument, the name parameter inside the function is undefined. Therefore, the function returns "Hi there, undefined", where undefined represents the missing argument.</i>
 
 </p>
 </details>
@@ -122,9 +122,9 @@ console.log(count);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: - B: 2
 
-<i>Write your explanation here</i>
+<i>The forEach method iterates over the nums array elements, and for each element (num), it checks if num is a truthy value (in JavaScript, all numbers except 0 are considered truthy). When num is 0, the condition is not met, so count remains unchanged. However, for the other three elements (1, 2, and 3), the condition is true, and count is incremented by 1 each time. Therefore, the final value of count is 2.</i>
 
 </p>
 </details>

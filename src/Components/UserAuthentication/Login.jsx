@@ -22,9 +22,9 @@ const Login = () => {
         navigate(location ? location?.state : "/");
         redirect("/");
       })
-      .catch(() => {
-        // console.log(err);
-        swal("Oops!", "You can not Logged in!", "error");
+      .catch((err) => {
+        
+        swal("Oops!", `You can not Logged in!${err.message}`, "error");
       });
     e.target.reset();
   };

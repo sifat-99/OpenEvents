@@ -5,6 +5,7 @@ import swal from "sweetalert";
 
 const Register = () => {
   const [valid, setValid] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { createUser, logOut } = useContext(AuthContext);
   const handleLogin = (e) => {
@@ -31,25 +32,27 @@ const Register = () => {
     } else {
       setValid("");
     }
-
-    swal({
-      title: "Good job!",
-      text: "Registration successful!",
-      icon: "success",
-      button: " Login Now!!!",
-    }).then(function () {
-      window.location = "/login";
-      // for force the new registered user to login again after registration to access everything.
-      logOut();
-    });
-    createUser(email, password, name, image)
-      .then((res) => {
-        console.log(res.user);
+    setErrorMessage("");
+      createUser(email, password, name, image)
+      .then(() => {
+        // console.log(res.user);
+        swal({
+          title: "Good job!",
+          text: "Registration successful!",
+          icon: "success",
+          button: " Login Now!!!",
+        }).then(function () {
+          window.location = "/login";
+          // for force the new registered user to login again after registration to access everything.
+          logOut();
+        });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        // console.log(err.message);
+        setErrorMessage("Email already in use");
       });
-    console.log(email, password, image, name);
+    
+    // console.log(email, password, image, name);
     e.target.reset();
   };
 
@@ -90,7 +93,7 @@ const Register = () => {
           </div>
           <div>
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text">Photo URL</span>
             </label>
             <input
               type="text"
@@ -113,6 +116,7 @@ const Register = () => {
             />
 
             <p className="text-red-600 font-semibold mt-3">{valid}</p>
+            <p className="text-red-600 pl-4 text-sm">{errorMessage}</p>
             <label className="label">
               <a href="#" className="label-text-alt link link-hover">
                 Forgot password?
