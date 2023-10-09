@@ -1,5 +1,5 @@
  <div align="center">
-    <img height="60" src="/openevent.png">
+    <img height="60" src="./public/openevent.png">
     <h1> OpenEvent </h1>
  </div>
         
