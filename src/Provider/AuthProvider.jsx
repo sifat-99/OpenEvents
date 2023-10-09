@@ -1,30 +1,39 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
 import PropTypes from "prop-types";
 import app from "../Firebase/firebase.config";
-
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  console.log(user?.displayName)
+  console.log(user?.displayName);
   const signInWithGoogle = (GoogleAuthProvider) => {
     setLoading(true);
-    return signInWithPopup(auth,GoogleAuthProvider);
-  }
+    return signInWithPopup(auth, GoogleAuthProvider);
+  };
 
-  const createUser = async (email, password,name,image) => {
+  const createUser = async (email, password, name, image) => {
     setLoading(true);
-    const createdUser =  await createUserWithEmailAndPassword(auth, email, password);
-    console.log(createdUser.user)
+    const createdUser = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(createdUser.user);
     const UpdateUser = createdUser.user;
-    await updateProfile(UpdateUser,{
-        displayName: name,
-        photoURL: image,
-    })
-
+    await updateProfile(UpdateUser, {
+      displayName: name,
+      photoURL: image,
+    });
   };
   const signIn = (email, password) => {
     setLoading(true);
@@ -34,8 +43,7 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     setLoading(true);
     return auth.signOut();
-  }
-
+  };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -47,8 +55,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const AuthInfo = 
-  {
+  const AuthInfo = {
     user,
     createUser,
     signIn,
@@ -56,7 +63,6 @@ const AuthProvider = ({ children }) => {
     logOut,
     loading,
   };
-
 
   return (
     <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>
